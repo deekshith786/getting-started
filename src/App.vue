@@ -1,7 +1,7 @@
 <template>
   <div>
-
-    <Home />
+    <Dashboard/>
+    <!-- <Home /> -->
     <img alt="Vue logo" src="./assets/logo.png" />
 
     <!-- binding text -->
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import Dashboard from './Dashboard.vue';
 import Home from './Home.vue';
 
 export default {
@@ -72,7 +73,7 @@ export default {
       },
     };
   },
-  components: { Home },
+  components: { Home, Dashboard },
 };
 </script>
 
