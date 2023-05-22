@@ -1,5 +1,7 @@
 <template>
   <div>
+
+    <Home />
     <img alt="Vue logo" src="./assets/logo.png" />
 
     <!-- binding text -->
@@ -45,6 +47,8 @@
 </template>
 
 <script>
+import Home from './Home.vue';
+
 export default {
   name: "App",
 
@@ -68,7 +72,7 @@ export default {
       },
     };
   },
-  components: {},
+  components: { Home },
 };
 </script>
 
