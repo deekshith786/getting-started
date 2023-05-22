@@ -16,6 +16,26 @@
 
     <!-- conditional rendering for HTML -->
     <h2 v-show="showElement"><i>Using V-Show</i></h2>
+
+    <!-- rendering of list "Array" -->
+    <h2 v-for="(name, index) in names" :key="name">{{ index }} {{ name }}</h2>
+
+    <!-- rendering of list "Object" -->
+    <!-- key attribute is mandatory  -->
+    <h2 v-for="name in fullNames" :key="name.first">
+      {{ name.first }} {{ name.last }}
+    </h2>
+
+    <div v-for="actor in actors" :key="actor.name">
+      <h2>{{ actor.name }}</h2>
+      <h2 v-for="(movie, index) in actor.movies" :key="movie">
+        {{ index }} - {{ movie }}
+      </h2>
+    </div>
+
+    <div v-for="info in myInfo" :key="info">
+      {{ info }}
+    </div>
   </div>
 </template>
 
@@ -27,6 +47,27 @@ export default {
       num: "hi",
       display: true,
       showElement: true,
+      names: ["Bruce", "Clark", "Diana"],
+      fullNames: [
+        { first: "Bruce", last: "wayne" },
+        { first: "Clark", last: "kent" },
+        { first: "Princess", last: "Diana" },
+      ],
+      actors: [
+        {
+          name: "Christian Bale",
+          movies: ["Batman", "The Prestige", "Dark Knight"],
+        },
+        {
+          name: "Di Caprio",
+          movies: ["Titanic", "Inception"],
+        },
+      ],
+      myInfo: {
+        name: "Deekshith",
+        age: 20,
+        phone: "7517854152",
+      },
     };
   },
 };
