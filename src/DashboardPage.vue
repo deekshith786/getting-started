@@ -1,11 +1,11 @@
 <template>
   <h1>{{ add(15, 25, 30) }}</h1>
-  <h1>{{ multiply(15) }}</h1>
+  <!-- <h1>{{ multiply(15) }}</h1> -->
 </template>
 
 <script>
 export default {
-  name: "Dashboard",
+  name: "DashboardView",
   data() {
     return {
       baseMultiplier: 5,

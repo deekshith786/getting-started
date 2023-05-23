@@ -1,7 +1,8 @@
 <template>
   <div>
-    <Dashboard/>
-    <!-- <Home /> -->
+    <EventsPage/>
+    <HomePage/>
+    <DashboardPage/>
     <img alt="Vue logo" src="./assets/logo.png" />
 
     <!-- binding text -->
@@ -47,33 +48,36 @@
 </template>
 
 <script>
-import Dashboard from './Dashboard.vue';
-import Home from './Home.vue';
+import DashboardPage from './DashboardPage.vue';
+import EventsPage from './EventsPage.vue';
+import HomePage from './HomePage.vue';
+
+
+
 
 export default {
-  name: "App",
-
-  data() {
-    return {
-      greet: "Welcome",
-      name: "Hakaiiii Deekshith",
-      channel: "<b>Code Evolution</b>",
-      hack: `<a href='#' onclick="alert('You have been hacked!')">Win a price!</a>`,
-      headingId: "heading",
-      isDisabled: false,
-      status: "danger",
-      isPromoted: true,
-      isSoldOut: false,
-      highlightColor: "orange",
-      headerSize: 50,
-      headerStyleObject: {
-        color: "orange",
-        fontSize: "50px",
-        padding: "20px",
-      },
-    };
-  },
-  components: { Home, Dashboard },
+    name: "App",
+    data() {
+        return {
+            greet: "Welcome",
+            name: "Hakaiiii Deekshith",
+            channel: "<b>Code Evolution</b>",
+            hack: `<a href='#' onclick="alert('You have been hacked!')">Win a price!</a>`,
+            headingId: "heading",
+            isDisabled: false,
+            status: "danger",
+            isPromoted: true,
+            isSoldOut: false,
+            highlightColor: "orange",
+            headerSize: 50,
+            headerStyleObject: {
+                color: "orange",
+                fontSize: "50px",
+                padding: "20px",
+            },
+        };
+    },
+    components: { DashboardPage, HomePage, EventsPage }
 };
 </script>
 
