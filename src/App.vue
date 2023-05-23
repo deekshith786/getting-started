@@ -1,5 +1,6 @@
 <template>
   <div>
+    <FormView/>
     <EventsPage/>
     <HomePage/>
     <DashboardPage/>
@@ -50,6 +51,7 @@
 <script>
 import DashboardPage from './DashboardPage.vue';
 import EventsPage from './EventsPage.vue';
+import FormView from './FormView.vue';
 import HomePage from './HomePage.vue';
 
 
@@ -77,7 +79,7 @@ export default {
             },
         };
     },
-    components: { DashboardPage, HomePage, EventsPage }
+    components: { DashboardPage, HomePage, EventsPage, FormView }
 };
 </script>
 
