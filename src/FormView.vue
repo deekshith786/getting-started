@@ -95,7 +95,7 @@
 
     <!-- submit -->
     <div>
-        <button>submit</button>
+      <button>submit</button>
     </div>
   </form>
 </template>
@@ -118,12 +118,11 @@ export default {
   },
   methods: {
     submitForm(event) {
-        // to prevent default page refresh we are adding the below statement
-        event.preventDefault()
-        console.log("Form Values", this.formValues);
-
-    }
-  }
+      // to prevent default page refresh we are adding the below statement
+      event.preventDefault();
+      console.log("Form Values", this.formValues);
+    },
+  },
 };
 </script>
 

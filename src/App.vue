@@ -1,9 +1,19 @@
 <template>
   <div>
-    <FormView/>
-    <EventsPage/>
-    <HomePage/>
-    <DashboardPage/>
+    <hr />
+    <Article title="Article title" :likes="50" :isPublished="true" />
+
+    <!-- binding props -->
+    <ComponentPage name="Bruce" heroName="Batman" />
+    <ComponentPage name="Clark" heroName="Superman" />
+
+    <!-- dynamically binding props -->
+    <ComponentPage :name="name" :heroName="heroName" />
+
+    <FormView />
+    <!-- <EventsPage /> -->
+    <HomePage />
+    <!-- <DashboardPage /> -->
     <img alt="Vue logo" src="./assets/logo.png" />
 
     <!-- binding text -->
@@ -45,41 +55,55 @@
     <!-- example -->
     <h2 :style="headerStyleObject">Short hand Styled Object</h2>
 
+    <h1>printing the data sending to nesting - {{ name }}</h1>
   </div>
 </template>
 
 <script>
-import DashboardPage from './DashboardPage.vue';
-import EventsPage from './EventsPage.vue';
-import FormView from './FormView.vue';
-import HomePage from './HomePage.vue';
-
-
-
+import DashboardPage from "./DashboardPage.vue";
+import EventsPage from "./EventsPage.vue";
+import FormView from "./FormView.vue";
+import HomePage from "./HomePage.vue";
+import ComponentPage from "./ComponentPage.vue";
+import Article from "./Article.vue";
+import { provide } from "vue";
 
 export default {
-    name: "App",
-    data() {
-        return {
-            greet: "Welcome",
-            name: "Hakaiiii Deekshith",
-            channel: "<b>Code Evolution</b>",
-            hack: `<a href='#' onclick="alert('You have been hacked!')">Win a price!</a>`,
-            headingId: "heading",
-            isDisabled: false,
-            status: "danger",
-            isPromoted: true,
-            isSoldOut: false,
-            highlightColor: "orange",
-            headerSize: 50,
-            headerStyleObject: {
-                color: "orange",
-                fontSize: "50px",
-                padding: "20px",
-            },
-        };
-    },
-    components: { DashboardPage, HomePage, EventsPage, FormView }
+  name: "App",
+  data() {
+    return {
+      greet: "Welcome",
+      name: "Hakaiiii Deekshith",
+      heroName: "SuperMan",
+      channel: "<b>Code Evolution</b>",
+      hack: `<a href='#' onclick="alert('You have been hacked!')">Win a price!</a>`,
+      headingId: "heading",
+      isDisabled: false,
+      status: "danger",
+      isPromoted: true,
+      isSoldOut: false,
+      highlightColor: "orange",
+      headerSize: 50,
+      headerStyleObject: {
+        color: "orange",
+        fontSize: "50px",
+        padding: "20px",
+      },
+    };
+  },
+  components: {
+    DashboardPage,
+    HomePage,
+    EventsPage,
+    FormView,
+    ComponentPage,
+    Article,
+  },
+  provide() {
+    return {
+      userName: this.name,
+    };
+  },
 };
 </script>
 

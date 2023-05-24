@@ -17,6 +17,8 @@
       <button @click="increment(3, $event)">Increment</button>
       <button @click="decrement(2)">Decrement</button>
     </div>
+
+    <h1>Data nested - {{ userName }}</h1>
   </div>
 </template>
 
@@ -42,6 +44,7 @@ export default {
       console.log(Event, event);
     },
   },
+  inject: ['userName']
 };
 </script>
 
