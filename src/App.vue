@@ -1,6 +1,38 @@
 <template>
   <div>
+
+
+    <NameList>
+      <template v-slot:default="slotProps">
+          {{ slotProps.fistName }} {{ slotProps.lastName }}
+      </template>
+    </NameList>
+    <hr>
+    <Card></Card>
+    <Card>Card Content</Card>
+    <Card><h2>card content</h2></Card>
+    <Card>
+      <img src="https://picsum.photos/200" />
+    </Card>
     <hr />
+
+    <Card>
+      <template v-slot:header>
+        <h3>header</h3>
+      </template>
+      <template v-slot:default>
+        <img src="https://picsum.photos/200" alt="">
+      </template>
+      <template v-slot:footer>
+        <button>View Details</button>
+      </template>
+    </Card>
+
+    <button @click="showPopup = true">show popup</button>
+
+    <Popup v-show="showPopup" @close="closePopup" />
+    <hr />
+
     <Article title="Article title" :likes="50" :isPublished="true" />
 
     <!-- binding props -->
@@ -60,13 +92,16 @@
 </template>
 
 <script>
-import DashboardPage from "./DashboardPage.vue";
-import EventsPage from "./EventsPage.vue";
+// import DashboardPage from "./DashboardPage.vue";
+// import EventsPage from "./EventsPage.vue";
 import FormView from "./FormView.vue";
 import HomePage from "./HomePage.vue";
 import ComponentPage from "./ComponentPage.vue";
 import Article from "./Article.vue";
-import { provide } from "vue";
+import Popup from "./Popup.vue";
+import Card from "./Card.vue";
+import NameList from "./NameList.vue";
+// import { provide } from "vue";
 
 export default {
   name: "App",
@@ -84,6 +119,7 @@ export default {
       isSoldOut: false,
       highlightColor: "orange",
       headerSize: 50,
+      showPopup: false,
       headerStyleObject: {
         color: "orange",
         fontSize: "50px",
@@ -92,17 +128,26 @@ export default {
     };
   },
   components: {
-    DashboardPage,
+    // DashboardPage,
     HomePage,
-    EventsPage,
+    // EventsPage,
     FormView,
     ComponentPage,
     Article,
-  },
+    Popup,
+    Card,
+    NameList
+},
   provide() {
     return {
       userName: this.name,
     };
+  },
+  methods: {
+    closePopup(name) {
+      this.showPopup = false;
+      console.log("data from child component - ", name);
+    },
   },
 };
 </script>
