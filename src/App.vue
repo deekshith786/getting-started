@@ -1,6 +1,8 @@
 <template>
   <div>
 
+<Vmodel/>
+<hr>
 
     <Methods />
 <hr>
@@ -162,6 +164,7 @@ import HoverCounter from "./HoverCounter.vue";
 import Data from "./composition-api/Data.vue";
 import Demo from "./composition-api/Demo.vue";
 import Methods from "./composition-api/Methods.vue";
+import Vmodel from "./composition-api/Vmodel.vue";
 // import { provide } from "vue";
 
 export default {
@@ -211,7 +214,8 @@ export default {
     HoverCounter,
     Data,
     Demo,
-    Methods
+    Methods,
+    Vmodel
 },
   provide() {
     return {
