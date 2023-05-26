@@ -1,7 +1,8 @@
 <template>
   <div>
-
-
+    <h4>app component</h4>
+    <ChildStyles />
+    <hr>
     <NameList>
       <template v-slot:default="slotProps">
           {{ slotProps.fistName }} {{ slotProps.lastName }}
@@ -101,6 +102,7 @@ import Article from "./Article.vue";
 import Popup from "./Popup.vue";
 import Card from "./Card.vue";
 import NameList from "./NameList.vue";
+import ChildStyles from "./ChildStyles.vue";
 // import { provide } from "vue";
 
 export default {
@@ -136,7 +138,8 @@ export default {
     Article,
     Popup,
     Card,
-    NameList
+    NameList,
+    ChildStyles
 },
   provide() {
     return {
@@ -152,7 +155,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -176,5 +179,9 @@ export default {
 
 .sold-out {
   color: red;
+}
+
+h4 {
+  color: chocolate;
 }
 </style>
