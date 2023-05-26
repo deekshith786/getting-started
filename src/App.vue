@@ -1,5 +1,12 @@
 <template>
   <div>
+    <!-- Http request using Axios library -->
+    <!-- post-Request -->
+    <CreatePosts />
+    <!-- get-Request -->
+    <PostList />
+
+    <hr />
     <button @click="activeTab = 'TabA'">Tab A</button>
     <button @click="activeTab = 'TabB'">Tab B</button>
     <button @click="activeTab = 'TabC'">Tab C</button>
@@ -119,6 +126,8 @@ import ChildStyles from "./ChildStyles.vue";
 import TabA from "./TabA.vue";
 import TabB from "./TabB.vue";
 import TabC from "./TabC.vue";
+import PostList from "./requests/PostList.vue";
+import CreatePosts from "./requests/CreatePosts.vue";
 // import { provide } from "vue";
 
 export default {
@@ -160,6 +169,8 @@ export default {
     TabA,
     TabB,
     TabC,
+    PostList,
+    CreatePosts,
   },
   provide() {
     return {
