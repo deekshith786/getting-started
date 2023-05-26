@@ -1,14 +1,27 @@
 <template>
   <div>
+    <button @click="activeTab = 'TabA'">Tab A</button>
+    <button @click="activeTab = 'TabB'">Tab B</button>
+    <button @click="activeTab = 'TabC'">Tab C</button>
+    <!-- <TabA v-if="activeTab === 'TabA'" />
+    <TabB v-if="activeTab === 'TabB'" />
+    <TabC v-if="activeTab === 'TabC'" /> -->
+
+    <!-- dynamic component -->
+    <keep-alive>
+      <component :is="activeTab" />
+    </keep-alive>
+
+    <hr />
     <h4>app component</h4>
     <ChildStyles />
-    <hr>
+    <hr />
     <NameList>
       <template v-slot:default="slotProps">
-          {{ slotProps.fistName }} {{ slotProps.lastName }}
+        {{ slotProps.fistName }} {{ slotProps.lastName }}
       </template>
     </NameList>
-    <hr>
+    <hr />
     <Card></Card>
     <Card>Card Content</Card>
     <Card><h2>card content</h2></Card>
@@ -22,7 +35,7 @@
         <h3>header</h3>
       </template>
       <template v-slot:default>
-        <img src="https://picsum.photos/200" alt="">
+        <img src="https://picsum.photos/200" alt="" />
       </template>
       <template v-slot:footer>
         <button>View Details</button>
@@ -103,6 +116,9 @@ import Popup from "./Popup.vue";
 import Card from "./Card.vue";
 import NameList from "./NameList.vue";
 import ChildStyles from "./ChildStyles.vue";
+import TabA from "./TabA.vue";
+import TabB from "./TabB.vue";
+import TabC from "./TabC.vue";
 // import { provide } from "vue";
 
 export default {
@@ -122,6 +138,7 @@ export default {
       highlightColor: "orange",
       headerSize: 50,
       showPopup: false,
+      activeTab: "TabA",
       headerStyleObject: {
         color: "orange",
         fontSize: "50px",
@@ -139,8 +156,11 @@ export default {
     Popup,
     Card,
     NameList,
-    ChildStyles
-},
+    ChildStyles,
+    TabA,
+    TabB,
+    TabC,
+  },
   provide() {
     return {
       userName: this.name,
