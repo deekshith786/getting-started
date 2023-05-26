@@ -1,5 +1,8 @@
 <template>
   <div>
+
+    <Watch />
+    <br><hr><hr>
     <!-- options api -->
     <input type="text" placeholder="fname" v-model="fname" />
     <input type="text" placeholder="lname" v-model="lname" />
@@ -19,43 +22,42 @@
 
 <script>
 import { ref, computed, reactive, toRefs } from "vue";
+import Watch from "./Watch.vue";
 export default {
-  name: "ComputedView",
-  setup() {
-    const refFistName = ref("");
-    const refLastName = ref("");
-
-    const state = reactive({
-      reactFirstName: "",
-      reactLastName: "",
-    });
-
-    const reactFullName = computed(function () {
-      return `${state.reactFirstName} ${state.reactLastName}`;
-    });
-
-    const refFullName = computed(function () {
-      return `${refFistName.value} ${refLastName.value}`;
-    });
-    return {
-      refFistName,
-      refLastName,
-      refFullName,
-      reactFullName,
-      ...toRefs(state)
-    };
-  },
-  data() {
-    return {
-      fname: "",
-      lname: "",
-    };
-  },
-  computed: {
-    fullName() {
-      return `${this.fname} - ${this.lname}`;
+    name: "ComputedView",
+    setup() {
+        const refFistName = ref("");
+        const refLastName = ref("");
+        const state = reactive({
+            reactFirstName: "",
+            reactLastName: "",
+        });
+        const reactFullName = computed(function () {
+            return `${state.reactFirstName} ${state.reactLastName}`;
+        });
+        const refFullName = computed(function () {
+            return `${refFistName.value} ${refLastName.value}`;
+        });
+        return {
+            refFistName,
+            refLastName,
+            refFullName,
+            reactFullName,
+            ...toRefs(state)
+        };
     },
-  },
+    data() {
+        return {
+            fname: "",
+            lname: "",
+        };
+    },
+    computed: {
+        fullName() {
+            return `${this.fname} - ${this.lname}`;
+        },
+    },
+    components: { Watch }
 };
 </script>
 
