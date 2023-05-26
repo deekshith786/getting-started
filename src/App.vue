@@ -1,5 +1,8 @@
 <template>
   <div>
+
+    <Parent />
+    <hr>
     <!-- Http request using Axios library -->
     <!-- post-Request -->
     <CreatePosts />
@@ -128,6 +131,7 @@ import TabB from "./TabB.vue";
 import TabC from "./TabC.vue";
 import PostList from "./requests/PostList.vue";
 import CreatePosts from "./requests/CreatePosts.vue";
+import Parent from "./Parent.vue";
 // import { provide } from "vue";
 
 export default {
@@ -171,7 +175,8 @@ export default {
     TabC,
     PostList,
     CreatePosts,
-  },
+    Parent
+},
   provide() {
     return {
       userName: this.name,
