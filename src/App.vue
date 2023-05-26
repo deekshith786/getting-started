@@ -1,6 +1,9 @@
 <template>
   <div>
 
+    <TemplateRef />
+    <hr>
+
     <Parent />
     <hr>
     <!-- Http request using Axios library -->
@@ -132,6 +135,7 @@ import TabC from "./TabC.vue";
 import PostList from "./requests/PostList.vue";
 import CreatePosts from "./requests/CreatePosts.vue";
 import Parent from "./Parent.vue";
+import TemplateRef from "./TemplateRef.vue";
 // import { provide } from "vue";
 
 export default {
@@ -175,7 +179,8 @@ export default {
     TabC,
     PostList,
     CreatePosts,
-    Parent
+    Parent,
+    TemplateRef
 },
   provide() {
     return {
@@ -191,7 +196,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
