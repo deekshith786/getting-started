@@ -1,23 +1,39 @@
 <template>
   <div>
 
+
+    <Methods />
+<hr>
+
+    <Demo />
+<hr>
+
+    <Data/>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <hr />
+
     <ClickCounter />
-    <hr>
+    <hr />
     <HoverCounter />
 
-<hr>
-    <TemplateRef />
-    <hr>
+    <hr />
+    <!-- <TemplateRef /> -->
+    <!-- <hr> -->
 
-    <Parent />
-    <hr>
+    <!-- <Parent />   -->
+    <!-- <hr> -->
     <!-- Http request using Axios library -->
     <!-- post-Request -->
-    <CreatePosts />
+    <!-- <CreatePosts /> -->
     <!-- get-Request -->
-    <PostList />
+    <!-- <PostList /> -->
 
-    <hr />
+    <!-- <hr /> -->
     <button @click="activeTab = 'TabA'">Tab A</button>
     <button @click="activeTab = 'TabB'">Tab B</button>
     <button @click="activeTab = 'TabC'">Tab C</button>
@@ -143,6 +159,9 @@ import Parent from "./Parent.vue";
 import TemplateRef from "./TemplateRef.vue";
 import ClickCounter from "./ClickCounter.vue";
 import HoverCounter from "./HoverCounter.vue";
+import Data from "./composition-api/Data.vue";
+import Demo from "./composition-api/Demo.vue";
+import Methods from "./composition-api/Methods.vue";
 // import { provide } from "vue";
 
 export default {
@@ -189,7 +208,10 @@ export default {
     Parent,
     TemplateRef,
     ClickCounter,
-    HoverCounter
+    HoverCounter,
+    Data,
+    Demo,
+    Methods
 },
   provide() {
     return {
@@ -205,7 +227,7 @@ export default {
 };
 </script>
 
-<style >
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
