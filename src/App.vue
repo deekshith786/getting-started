@@ -1,6 +1,11 @@
 <template>
   <div>
 
+    <ClickCounter />
+    <hr>
+    <HoverCounter />
+
+<hr>
     <TemplateRef />
     <hr>
 
@@ -136,6 +141,8 @@ import PostList from "./requests/PostList.vue";
 import CreatePosts from "./requests/CreatePosts.vue";
 import Parent from "./Parent.vue";
 import TemplateRef from "./TemplateRef.vue";
+import ClickCounter from "./ClickCounter.vue";
+import HoverCounter from "./HoverCounter.vue";
 // import { provide } from "vue";
 
 export default {
@@ -180,7 +187,9 @@ export default {
     PostList,
     CreatePosts,
     Parent,
-    TemplateRef
+    TemplateRef,
+    ClickCounter,
+    HoverCounter
 },
   provide() {
     return {
