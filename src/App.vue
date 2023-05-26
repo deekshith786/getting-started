@@ -1,57 +1,33 @@
 <template>
   <div>
-
-<Vmodel/>
-<hr>
-
-    <Methods />
-<hr>
-
-    <Demo />
-<hr>
-
-    <Data/>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <hr />
-
-    <ClickCounter />
-    <hr />
-    <HoverCounter />
-
-    <hr />
-    <!-- <TemplateRef /> -->
-    <!-- <hr> -->
-
-    <!-- <Parent />   -->
-    <!-- <hr> -->
-    <!-- Http request using Axios library -->
-    <!-- post-Request -->
-    <!-- <CreatePosts /> -->
-    <!-- get-Request -->
-    <!-- <PostList /> -->
+    <div>
+      <div>
+        <router-link to="/">home</router-link> | 
+        <router-link to="/card">card</router-link> | 
+        <router-link to="/vmodel">vmodel</router-link> | 
+        <router-link to="/methods">methods</router-link> | 
+        <router-link to="/demo">demo</router-link> | 
+        <router-link to="/data">data</router-link> | 
+        <router-link to="/clickCounter">clickCounter</router-link> | 
+        <router-link to="/HoverCounter">HoverCounter</router-link> | 
+        <router-link to="/ChildStyles">ChildStyles</router-link> | 
+        <router-link to="/FormView">FormView</router-link> | 
+        <router-link to="/card">card</router-link> | 
+      </div>
+      <router-view />
+    </div>
+    <RouterView />
 
     <!-- <hr /> -->
     <button @click="activeTab = 'TabA'">Tab A</button>
     <button @click="activeTab = 'TabB'">Tab B</button>
     <button @click="activeTab = 'TabC'">Tab C</button>
-    <!-- <TabA v-if="activeTab === 'TabA'" />
-    <TabB v-if="activeTab === 'TabB'" />
-    <TabC v-if="activeTab === 'TabC'" /> -->
 
     <!-- dynamic component -->
     <keep-alive>
       <component :is="activeTab" />
     </keep-alive>
 
-    <hr />
-    <h4>app component</h4>
-    <ChildStyles />
-    <hr />
     <NameList>
       <template v-slot:default="slotProps">
         {{ slotProps.fistName }} {{ slotProps.lastName }}
@@ -92,10 +68,6 @@
     <!-- dynamically binding props -->
     <ComponentPage :name="name" :heroName="heroName" />
 
-    <FormView />
-    <!-- <EventsPage /> -->
-    <HomePage />
-    <!-- <DashboardPage /> -->
     <img alt="Vue logo" src="./assets/logo.png" />
 
     <!-- binding text -->
@@ -142,16 +114,10 @@
 </template>
 
 <script>
-// import DashboardPage from "./DashboardPage.vue";
-// import EventsPage from "./EventsPage.vue";
-import FormView from "./FormView.vue";
-import HomePage from "./HomePage.vue";
 import ComponentPage from "./ComponentPage.vue";
 import Article from "./Article.vue";
 import Popup from "./Popup.vue";
-import Card from "./Card.vue";
 import NameList from "./NameList.vue";
-import ChildStyles from "./ChildStyles.vue";
 import TabA from "./TabA.vue";
 import TabB from "./TabB.vue";
 import TabC from "./TabC.vue";
@@ -159,13 +125,6 @@ import PostList from "./requests/PostList.vue";
 import CreatePosts from "./requests/CreatePosts.vue";
 import Parent from "./Parent.vue";
 import TemplateRef from "./TemplateRef.vue";
-import ClickCounter from "./ClickCounter.vue";
-import HoverCounter from "./HoverCounter.vue";
-import Data from "./composition-api/Data.vue";
-import Demo from "./composition-api/Demo.vue";
-import Methods from "./composition-api/Methods.vue";
-import Vmodel from "./composition-api/Vmodel.vue";
-// import { provide } from "vue";
 
 export default {
   name: "App",
@@ -193,16 +152,10 @@ export default {
     };
   },
   components: {
-    // DashboardPage,
-    HomePage,
-    // EventsPage,
-    FormView,
     ComponentPage,
     Article,
     Popup,
-    Card,
     NameList,
-    ChildStyles,
     TabA,
     TabB,
     TabC,
@@ -210,13 +163,7 @@ export default {
     CreatePosts,
     Parent,
     TemplateRef,
-    ClickCounter,
-    HoverCounter,
-    Data,
-    Demo,
-    Methods,
-    Vmodel
-},
+  },
   provide() {
     return {
       userName: this.name,
